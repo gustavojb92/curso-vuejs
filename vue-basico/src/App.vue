@@ -1,28 +1,48 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <!--  <nav>
+      <router-link to="/login">Login</router-link> |
+      <router-link to="/">Dashboard</router-link> | 
+      <router-link to="/controle-de-clientes">Clientes</router-link> | 
+      <router-link to="/controle-de-produtos">Produtos</router-link>
+    </nav> -->
+    <MenuComponent v-if="this.$router.currentRoute.name != 'Login'"/>
+    <router-view />
   </div>
 </template>
-
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import MenuComponent from "./components/Menu/MenuComponent.vue";
 export default {
-  name: 'App',
   components: {
-    HelloWorld
-  }
-}
+    MenuComponent: MenuComponent,
+  },
+};
 </script>
-
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --cor-primaria: #ff3d00;
+  --cor-secundaria: #ff6e40;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.container{
+  margin-top: 15px;
+}
+
+.titulo{
+  font-weight: 600;
+  color: #363636;
+  font-size: 20pt;
+}
+
+hr{
+  margin: 0;
 }
 </style>
